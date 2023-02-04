@@ -5,7 +5,6 @@ interface MksContextProps {
   cartProducts: {}[];
   setProducts: any;
   setCartProducts: any;
-  addProductToLits: any;
   addProductToCart: any;
 }
 
@@ -30,10 +29,6 @@ export const MksProvider = ({ children }: MksProviderProps) => {
   const [products, setProducts] = useState<Array<IProducts>>([]);
   const [cartProducts, setCartProducts] = useState<Array<IProducts>>([]);
 
-  function addProductToLits(product: IProducts) {
-    setProducts([...products, product]);
-  }
-
   function addProductToCart(product: IProducts) {
     setProducts([...cartProducts, product]);
   }
@@ -45,8 +40,7 @@ export const MksProvider = ({ children }: MksProviderProps) => {
         cartProducts,
         setProducts,
         setCartProducts,
-        addProductToLits,
-        addProductToCart,
+        addProductToCart
       }}
     >
       {children}

@@ -4,11 +4,12 @@ export const Div = styled.div`
   width: 218px;
   height: 285px;
 
-  /* border: 1px solid black; */
   border-radius: 8px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
+  background-color: #FFFFFF;
 
-  margin: 16px;
+  margin: 32px;
+
 
   display: flex;
   flex-direction: column;
@@ -35,6 +36,11 @@ export const Div = styled.div`
     line-height: 18px;
     letter-spacing: 0px;
     text-align: center;
+
+    display: flex;
+    flex-direction:  row;
+    justify-content: center;
+    align-items: center;
   }
 
   .namePrice {
@@ -92,5 +98,9 @@ export const Div = styled.div`
     text-align: left;
 
     color: #2c2c2c;
+  }
+
+  .icon{
+    margin: 8px;
   }
 `;

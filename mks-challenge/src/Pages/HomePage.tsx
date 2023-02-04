@@ -1,10 +1,11 @@
 import axios from "axios";
-import { Cart } from "../components/Cart";
 import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
+import { Header } from "../components/Header/Header";
 import { Product } from "../components/Products/Product";
 import { IProducts, useMks } from "../contexts/MksContext";
 import { useEffect, useState } from "react";
+import { Main, Div } from "./styledHomePage";
+
 
 export const HomePage = (props: any) => {
   const { products, setProducts } = useMks();
@@ -49,11 +50,12 @@ export const HomePage = (props: any) => {
   // };
 
   return (
-    <div>
-      <Header />
-      <Cart />
-      {listProducts.map((product)=><Product product={product}/>) }
+    <Div>
+      <Header/>
+      <Main>
+      {listProducts.map((product)=><Product key={product.id} product={product}/>) }
+      </Main>
       <Footer />
-    </div>
+    </Div>
   );
 };

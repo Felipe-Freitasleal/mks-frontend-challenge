@@ -1,5 +1,6 @@
 import { useMks } from "../../contexts/MksContext";
 import { Div } from "./styledProduct";
+import { BiBox } from "react-icons/bi";
 
 interface ProductProps {
   product: {
@@ -18,8 +19,8 @@ export const Product = ({ product }: ProductProps) => {
   const { addProductToCart } = useMks();
   console.log(product);
 
-  const stringTNumber = Number(product.price)
-  const priceProduct = stringTNumber.toFixed()
+  const stringTNumber = Number(product.price);
+  const priceProduct = stringTNumber.toFixed();
 
   return (
     <Div>
@@ -30,6 +31,9 @@ export const Product = ({ product }: ProductProps) => {
       </div>
       <p className="description">{product.description}</p>
       <button onClick={() => addProductToCart(product)}>
+        <span className="icon">
+          <BiBox />
+        </span>
         COMPRAR
       </button>
     </Div>
