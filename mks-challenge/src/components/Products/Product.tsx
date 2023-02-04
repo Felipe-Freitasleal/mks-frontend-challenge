@@ -2,6 +2,7 @@ import { useMks } from "../../contexts/MksContext";
 import { Div } from "./styledProduct";
 import { BiBox } from "react-icons/bi";
 
+
 interface ProductProps {
   product: {
     id: number;
@@ -12,6 +13,7 @@ interface ProductProps {
     price: string;
     createdAt: string;
     updatedAt: string;
+    quantity: number
   };
 }
 

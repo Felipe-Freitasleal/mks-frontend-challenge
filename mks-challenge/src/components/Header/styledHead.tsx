@@ -6,10 +6,8 @@ export const Div = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  width: 1440px;
+  width: 100%;
   height: 101px;
-  left: 0px;
-  top: 0px;
 
   background: #0f52ba;
 
@@ -22,7 +20,7 @@ export const Div = styled.div`
     background: #ffffff;
     border-radius: 8px;
 
-    margin-right: 150px;
+    margin-right: 120px;
 
     font-family: "Montserrat";
 
@@ -43,7 +41,7 @@ export const Div = styled.div`
 
     mix-blend-mode: normal;
 
-    margin-left: 150px;
+    margin-left: 110px;
 
     .bigTile {
       left: 4.51%;

@@ -6,6 +6,8 @@ export const Div = styled.div`
   justify-content: space-between;
   align-items: center;
   background: #E5E5E5;
+  width: 100%;
+  min-height: 1024px ;
 `;
 
 export const Main = styled.div`

@@ -38,16 +38,9 @@ export const HomePage = (props: any) => {
     }
   };
 
-  checkProducts(products);
-
-  // const renderProduct = (listProducts) => {
-  //   if (listProducts) {
-  //     console.log("chegou aqui tbem")
-  //     listProducts.map((product)=><Product product={product}/>) 
-  //   } else {
-  //     return "CARREGANDO";
-  //   }
-  // };
+  useEffect(()=>{
+    checkProducts(products);
+  },[products])
 
   return (
     <Div>

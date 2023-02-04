@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import swal from "sweetalert";
 
 interface MksContextProps {
   products: {}[];
@@ -6,6 +7,7 @@ interface MksContextProps {
   setProducts: any;
   setCartProducts: any;
   addProductToCart: any;
+  removerProduto: any;
 }
 
 interface MksProviderProps {
@@ -13,14 +15,15 @@ interface MksProviderProps {
 }
 
 export interface IProducts {
-  id: number
-  name: string
-  brand: string
-  description: string
-  photo: string
-  price: string
-  createdAt: string
-  updatedAt: string
+  id: number;
+  name: string;
+  brand: string;
+  description: string;
+  photo: string;
+  price: string;
+  createdAt: string;
+  updatedAt: string;
+  quantity: number;
 }
 
 export const MksContext = createContext({} as MksContextProps);
@@ -30,8 +33,33 @@ export const MksProvider = ({ children }: MksProviderProps) => {
   const [cartProducts, setCartProducts] = useState<Array<IProducts>>([]);
 
   function addProductToCart(product: IProducts) {
-    setProducts([...cartProducts, product]);
+    const newProduct = {...product}
+    newProduct.quantity =  1
+    setCartProducts([...cartProducts, newProduct]);
+    swal({
+      title: "Muito bem!",
+      text: "O produto foi adicionado ao carrinho!",
+      icon: "success",
+    });
   }
+
+  const removerProduto = (product) => {
+    const novoCartData = cartProducts;
+
+    const indexDoproduct = novoCartData.indexOf(product);
+    console.log(indexDoproduct);
+
+    novoCartData.splice(indexDoproduct, 1);
+    console.log(novoCartData);
+
+    setCartProducts(novoCartData);
+
+    swal({
+      title: "Certo!",
+      text: "O produto foi removido do carrinho!",
+      icon: "success",
+    });
+  };
 
   return (
     <MksContext.Provider
@@ -40,7 +68,8 @@ export const MksProvider = ({ children }: MksProviderProps) => {
         cartProducts,
         setProducts,
         setCartProducts,
-        addProductToCart
+        addProductToCart,
+        removerProduto,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import { useMks } from "../../contexts/MksContext";
+import { IProducts, useMks } from "../../contexts/MksContext";
 import { Div } from "./styledHead";
 import { BiCart } from "react-icons/bi";
 import {
@@ -14,13 +14,21 @@ import {
   Box,
   Text,
 } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Cart } from "../Cart/Cart";
 
 export const Header = () => {
   const { cartProducts } = useMks();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const btnRef = useRef(null);
+
+  const total = cartProducts.reduce(
+    (acc: number, product: IProducts) =>
+      Number(product.price) * product.quantity + acc,
+    0
+  );
+
   return (
     <Div>
       <div className="title">
@@ -64,7 +72,13 @@ export const Header = () => {
             }}
           />
           <ModalBody>
-            <p>vai a lista de produtos do cart aqui</p>
+            {cartProducts.length > 0 ? (
+              cartProducts.map((product: IProducts) => (
+                <Cart key={product.id} product={product} />
+              ))
+            ) : (
+              <Text>Carrinho Vazio</Text>
+            )}
           </ModalBody>
           <ModalFooter display={"flex"} flexDir={"column"} p={"0px"}>
             <Box
@@ -77,7 +91,9 @@ export const Header = () => {
               p={"32px"}
             >
               <Text>Total:</Text>
-              <Text>R$: Valor</Text>
+              <Box>
+                R$<>{total}</>
+              </Box>
             </Box>
             <Button
               width={"100%"}

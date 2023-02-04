@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
-  width: 218px;
-  height: 285px;
+  width: 230px;
+  height: 300px;
 
   border-radius: 8px;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
@@ -22,7 +22,7 @@ export const Div = styled.div`
   }
 
   button {
-    width: 218px;
+    width: 100%;
     height: 32px;
 
     background-color: #0f52ba;
@@ -41,6 +41,8 @@ export const Div = styled.div`
     flex-direction:  row;
     justify-content: center;
     align-items: center;
+
+
   }
 
   .namePrice {
@@ -88,7 +90,7 @@ export const Div = styled.div`
   .description {
     height: 25px;
     width: 192px;
-    padding-bottom: 8px;
+    padding-bottom: 32px;
 
     font-family: "Montserrat", sans-serif;
     font-size: 10px;
