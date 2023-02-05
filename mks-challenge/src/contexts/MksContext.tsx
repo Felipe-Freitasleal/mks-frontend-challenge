@@ -44,13 +44,9 @@ export const MksProvider = ({ children }: MksProviderProps) => {
   }
 
   const removerProduto = (product) => {
-    const novoCartData = cartProducts;
 
-    const indexDoproduct = novoCartData.indexOf(product);
-    console.log(indexDoproduct);
-
-    novoCartData.splice(indexDoproduct, 1);
-    console.log(novoCartData);
+    const novoCartData = cartProducts.filter(p => p !== product);
+    setCartProducts(novoCartData);
 
     setCartProducts(novoCartData);
 

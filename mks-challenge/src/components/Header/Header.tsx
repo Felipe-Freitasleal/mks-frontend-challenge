@@ -29,6 +29,13 @@ export const Header = () => {
     0
   );
 
+const [listCart, setListCard] = useState([])
+
+  useEffect(()=>{
+    setListCard(cartProducts)
+  },[cartProducts])
+
+
   return (
     <Div>
       <div className="title">
@@ -72,8 +79,8 @@ export const Header = () => {
             }}
           />
           <ModalBody>
-            {cartProducts.length > 0 ? (
-              cartProducts.map((product: IProducts) => (
+            {listCart.length > 0? (
+              listCart.map((product: IProducts) => (
                 <Cart key={product.id} product={product} />
               ))
             ) : (

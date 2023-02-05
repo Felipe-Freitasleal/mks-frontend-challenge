@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Footer } from "../components/Footer";
+import { Footer } from "../components/Footer/Footer";
 import { Header } from "../components/Header/Header";
 import { Product } from "../components/Products/Product";
 import { IProducts, useMks } from "../contexts/MksContext";
@@ -16,7 +16,7 @@ export const HomePage = (props: any) => {
     try {
       const request = await axios.get(baseURL);
       setProducts(request.data.products as IProducts);
-      console.log(request.data.products);
+
     } catch (error) {
       console.log(error);
     }
@@ -32,7 +32,7 @@ export const HomePage = (props: any) => {
     if (products) {
       let sendProducts = await products;
       setListProducts(sendProducts);
-      console.log("passou por aqui")
+
     } else {
       console.log("não tá funcionando");
     }

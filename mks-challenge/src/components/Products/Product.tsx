@@ -19,7 +19,6 @@ interface ProductProps {
 
 export const Product = ({ product }: ProductProps) => {
   const { addProductToCart } = useMks();
-  console.log(product);
 
   const stringTNumber = Number(product.price);
   const priceProduct = stringTNumber.toFixed();

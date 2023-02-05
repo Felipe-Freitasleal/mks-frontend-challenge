@@ -43,12 +43,6 @@ export const Cart = ({ product }: CartProps) => {
     if (product.quantity > 1) {
       product.quantity = product.quantity - 1
     }
-    // if (product.quantity === 0) {
-    //   //se entrar aqui, é pq a quantity é menor que 1, e ele tem de deixar de existir. 
-    //   const index = novoCarrinho.indexOf(product) // achar o índice do ítem a ser removido
-    //   console.log(index)
-    //   novoCarrinho.splice(index, 1) //remove o ítem em que o índice foi achado com o método indexOf()
-    // }
 
     return setCartProducts(newCart)
   };
